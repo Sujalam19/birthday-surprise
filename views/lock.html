@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Unlock</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+    background: linear-gradient(45deg,pink,purple);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:sans-serif;
+}
+.box {
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+}
+input {
+    padding:10px;
+    margin:10px;
+}
+button {
+    background:purple;
+    color:white;
+    padding:10px;
+    border:none;
+}
+</style>
+</head>
+
+<body>
+<div class="box">
+<h2>Enter Secret Code 🎁</h2>
+<form action="/unlock" method="POST">
+<input type="password" name="password" placeholder="Secret PIN" required>
+<br>
+<button>Unlock</button>
+</form>
+</div>
+</body>
+</html>
