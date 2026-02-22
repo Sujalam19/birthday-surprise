@@ -7,11 +7,16 @@
 <style>
 body {
 margin:0;
-height:100vh;
-overflow:hidden;
+min-height:100vh;
+width:100%;
+overflow-x:hidden;
+overflow-y:auto;
 font-family:sans-serif;
 color:white;
 text-align:center;
+display:flex;
+flex-direction:column;
+align-items:center;
 background: linear-gradient(-45deg,#ff416c,#ff4b2b,#8e2de2,#ff6a88);
 background-size:400% 400%;
 animation: gradientBG 6s ease infinite;
@@ -25,25 +30,27 @@ animation: gradientBG 6s ease infinite;
 
 h1 {
 margin-top:60px;
-font-size:50px;
+font-size:7vw;
 text-shadow:0 0 30px white;
 }
 
 #msg {
-width:80%;
+width:90%;
+max-width:600px;
 margin:auto;
-font-size:22px;
-line-height:40px;
+font-size:20px;
+line-height:35px;
 margin-top:40px;
 border-right:3px solid white;
-white-space:nowrap;
+white-space:normal;
 overflow:hidden;
 animation: typing 6s steps(60), blink .5s infinite alternate;
+word-wrap:break-word;
 }
 
 @keyframes typing {
 from { width:0 }
-to { width:80% }
+to { width:100% }
 }
 
 @keyframes blink {
@@ -52,7 +59,7 @@ to { width:80% }
 
 .propose {
 margin-top:50px;
-font-size:35px;
+font-size:6vw;
 animation: glow 1.5s infinite alternate;
 }
 
@@ -74,7 +81,7 @@ animation: float 6s linear infinite;
 button {
 margin-top:40px;
 padding:15px 30px;
-font-size:20px;
+font-size:18px;
 background:pink;
 border:none;
 border-radius:20px;
@@ -85,7 +92,6 @@ cursor:pointer;
 position:absolute;
 width:10px;
 height:10px;
-background:red;
 animation: fall 4s linear infinite;
 }
 
@@ -106,7 +112,7 @@ z-index:999;
 .popupContent {
 background:white;
 color:black;
-padding:40px;
+padding:30px;
 border-radius:20px;
 text-align:center;
 width:90%;
@@ -134,7 +140,6 @@ cursor:pointer;
 100% {transform: translateY(100vh);}
 }
 </style>
-
 </head>
 
 <body>
@@ -155,47 +160,16 @@ Mujhe tum hi chahiye patni ke roop me 💍❤️
 <button onclick="celebrate()">YES!! 💖</button>
 
 <div id="lovePopup">
-
 <div class="popupContent">
-
 <h2>💖 I Love You Mohini 💖</h2>
-
 <p>
 Aaj se meri duniya sirf tum ho 🥺  
 Main promise karta hoon ki hamesha tumhe khush rakhunga 💕  
 Har situation me tumhara saath dunga 🤝  
-
 Aur ek din tumhe apni patni banaunga ❤️
 </p>
-
 <button onclick="closePopup()">Close</button>
-
 </div>
-</div>
-
-<div id="hiddenMsg" style="display:none;
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:white;
-color:black;
-padding:40px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 0 40px pink;
-z-index:999;">
-<h2>💖 Thank You For Saying YES 💖</h2>
-
-<p style="font-size:18px;line-height:30px;">
-Aaj se meri duniya sirf tum ho 🥺  
-Main promise karta hoon ki hamesha tumhe khush rakhunga 💕  
-Har situation me tumhara saath dunga 🤝  
-
-Aur ek din tumhe apni patni banaunga ❤️
-</p>
-
-<button onclick="closeMsg()">Close</button>
 </div>
 
 <audio autoplay loop>
@@ -204,7 +178,6 @@ Aur ek din tumhe apni patni banaunga ❤️
 
 <script>
 
-// floating hearts
 setInterval(()=>{
 let heart=document.createElement("div");
 heart.className="heart";
@@ -215,7 +188,6 @@ document.body.appendChild(heart);
 setTimeout(()=>heart.remove(),6000);
 },300);
 
-// confetti blast
 function celebrate(){
 for(let i=0;i<100;i++){
 let conf=document.createElement("div");
@@ -225,14 +197,12 @@ conf.style.background="hsl("+Math.random()*360+",100%,50%)";
 document.body.appendChild(conf);
 setTimeout(()=>conf.remove(),4000);
 }
-
 document.getElementById("lovePopup").style.display="flex";
 }
 
 function closePopup(){
 document.getElementById("lovePopup").style.display="none";
 }
-
 </script>
 
 </body>
