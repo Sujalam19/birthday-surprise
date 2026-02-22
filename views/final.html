@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Final Surprise ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+margin:0;
+height:100vh;
+overflow:hidden;
+font-family:sans-serif;
+color:white;
+text-align:center;
+background: linear-gradient(-45deg,#ff416c,#ff4b2b,#8e2de2,#ff6a88);
+background-size:400% 400%;
+animation: gradientBG 6s ease infinite;
+}
+
+@keyframes gradientBG {
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+h1 {
+margin-top:60px;
+font-size:50px;
+text-shadow:0 0 30px white;
+}
+
+#msg {
+width:80%;
+margin:auto;
+font-size:22px;
+line-height:40px;
+margin-top:40px;
+border-right:3px solid white;
+white-space:nowrap;
+overflow:hidden;
+animation: typing 6s steps(60), blink .5s infinite alternate;
+}
+
+@keyframes typing {
+from { width:0 }
+to { width:80% }
+}
+
+@keyframes blink {
+50% { border-color:transparent }
+}
+
+.propose {
+margin-top:50px;
+font-size:35px;
+animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+from { text-shadow:0 0 10px white; }
+to { text-shadow:0 0 50px yellow; }
+}
+
+.heart {
+position:absolute;
+animation: float 6s linear infinite;
+}
+
+@keyframes float {
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-10vh);}
+}
+
+button {
+margin-top:40px;
+padding:15px 30px;
+font-size:20px;
+background:pink;
+border:none;
+border-radius:20px;
+cursor:pointer;
+}
+
+.confetti {
+position:absolute;
+width:10px;
+height:10px;
+background:red;
+animation: fall 4s linear infinite;
+}
+
+#lovePopup {
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(5px);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.popupContent {
+background:white;
+color:black;
+padding:40px;
+border-radius:20px;
+text-align:center;
+width:90%;
+max-width:350px;
+box-shadow:0 0 40px pink;
+animation: zoomIn 0.5s ease;
+}
+
+@keyframes zoomIn {
+from {transform:scale(0);}
+to {transform:scale(1);}
+}
+
+.popupContent button {
+margin-top:20px;
+padding:10px 20px;
+background:pink;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+@keyframes fall {
+0% {transform: translateY(-10vh);}
+100% {transform: translateY(100vh);}
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🎁 Final Surprise 🎂</h1>
+
+<div id="msg">
+Tum meri life ka sabse khoobsurat hissa ho 💖  
+Tumhare bina sab kuch adhura sa lagta hai...  
+Har sapna ab tumse hi jud gaya hai 🥺  
+Aur ab bas ek hi khwaish hai dil se...
+</div>
+
+<div class="propose">
+Mujhe tum hi chahiye patni ke roop me 💍❤️
+</div>
+
+<button onclick="celebrate()">YES!! 💖</button>
+
+<div id="lovePopup">
+
+<div class="popupContent">
+
+<h2>💖 I Love You Mohini 💖</h2>
+
+<p>
+Aaj se meri duniya sirf tum ho 🥺  
+Main promise karta hoon ki hamesha tumhe khush rakhunga 💕  
+Har situation me tumhara saath dunga 🤝  
+
+Aur ek din tumhe apni patni banaunga ❤️
+</p>
+
+<button onclick="closePopup()">Close</button>
+
+</div>
+</div>
+
+<div id="hiddenMsg" style="display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+color:black;
+padding:40px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 0 40px pink;
+z-index:999;">
+<h2>💖 Thank You For Saying YES 💖</h2>
+
+<p style="font-size:18px;line-height:30px;">
+Aaj se meri duniya sirf tum ho 🥺  
+Main promise karta hoon ki hamesha tumhe khush rakhunga 💕  
+Har situation me tumhara saath dunga 🤝  
+
+Aur ek din tumhe apni patni banaunga ❤️
+</p>
+
+<button onclick="closeMsg()">Close</button>
+</div>
+
+<audio autoplay loop>
+<source src="/janam.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+// floating hearts
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*30+20)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+},300);
+
+// confetti blast
+function celebrate(){
+for(let i=0;i<100;i++){
+let conf=document.createElement("div");
+conf.className="confetti";
+conf.style.left=Math.random()*100+"vw";
+conf.style.background="hsl("+Math.random()*360+",100%,50%)";
+document.body.appendChild(conf);
+setTimeout(()=>conf.remove(),4000);
+}
+
+document.getElementById("lovePopup").style.display="flex";
+}
+
+function closePopup(){
+document.getElementById("lovePopup").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
